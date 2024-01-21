@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit page    
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Page '{{ page_name }}'</h1>
+    <a class = "help_link" href = "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Guide</a>
+    <form action = "{% url 'edit' page_name %}" method = 'post'>
+        {% csrf_token %}
+        {{ editable_content }}
+        <div>
+            <input class = "sub_edit" type = "submit" name = "save_changes" value = "Save">
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Add new page
+    
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+    <a class = "help_link" href = "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Guide</a>
+    <form action = "{% url 'add' %}" method = 'post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type = "submit" name = "create_page" value="Create">
+    </form>
+{% endblock %}
